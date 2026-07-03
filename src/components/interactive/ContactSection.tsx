@@ -91,7 +91,7 @@ export default function ContactSection() {
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <p className="text-slate-900 dark:text-slate-100 font-medium">Open to opportunities</p>
+                <p className="text-slate-900 dark:text-slate-100 font-medium">Open to fulltime/internship opportunities</p>
               </div>
             </div>
 

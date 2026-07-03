@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { id: "about", label: "About" },
@@ -13,12 +13,7 @@ const navItems = [
   { id: "contact", label: "Contact" },
 ];
 
-interface NavigationProps {
-  isDarkMode: boolean;
-  toggleTheme: () => void;
-}
-
-export default function Navigation({ isDarkMode, toggleTheme }: NavigationProps) {
+export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -100,42 +95,10 @@ export default function Navigation({ isDarkMode, toggleTheme }: NavigationProps)
                   {item.label}
                 </motion.button>
               ))}
-              
-              {/* Theme Toggle Button */}
-              <motion.button
-                onClick={toggleTheme}
-                whileHover={{ scale: 1.1, rotate: 180 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="ml-2 p-2.5 rounded-lg bg-gradient-to-br from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30 hover:from-cyan-200 hover:to-blue-200 dark:hover:from-cyan-800/40 dark:hover:to-blue-800/40 border-2 border-cyan-300 dark:border-cyan-700 shadow-md hover:shadow-lg transition-all"
-                aria-label="Toggle theme"
-              >
-                {isDarkMode ? (
-                  <Sun className="w-5 h-5 text-yellow-500" />
-                ) : (
-                  <Moon className="w-5 h-5 text-cyan-700" />
-                )}
-              </motion.button>
             </div>
 
-            {/* Mobile Menu Button & Theme Toggle */}
+            {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center gap-2">
-              {/* Mobile Theme Toggle */}
-              <motion.button
-                onClick={toggleTheme}
-                whileHover={{ scale: 1.1, rotate: 180 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="p-2 rounded-lg bg-gradient-to-br from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30 border-2 border-cyan-300 dark:border-cyan-700"
-                aria-label="Toggle theme"
-              >
-                {isDarkMode ? (
-                  <Sun className="w-5 h-5 text-yellow-500" />
-                ) : (
-                  <Moon className="w-5 h-5 text-cyan-700" />
-                )}
-              </motion.button>
-              
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
