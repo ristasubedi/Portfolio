@@ -80,18 +80,20 @@ const skillCategories: SkillCategory[] = [
   },
 ];
 
+// Dark mode optimal color configurations for background chips, text highlights, and filled tracks
 const colorClasses: Record<string, { bg: string; text: string; bar: string }> = {
-  blue: { bg: "bg-blue-50", text: "text-blue-700", bar: "bg-blue-500" },
-  indigo: { bg: "bg-indigo-50", text: "text-indigo-700", bar: "bg-indigo-500" },
-  violet: { bg: "bg-violet-50", text: "text-violet-700", bar: "bg-violet-500" },
-  cyan: { bg: "bg-cyan-50", text: "text-cyan-700", bar: "bg-cyan-500" },
-  purple: { bg: "bg-purple-50", text: "text-purple-700", bar: "bg-purple-500" },
-  emerald: { bg: "bg-emerald-50", text: "text-emerald-700", bar: "bg-emerald-500" },
+  blue: { bg: "bg-blue-950/50 border-blue-800/50", text: "text-blue-400", bar: "bg-blue-500" },
+  indigo: { bg: "bg-indigo-950/50 border-indigo-800/50", text: "text-indigo-400", bar: "bg-indigo-500" },
+  violet: { bg: "bg-violet-950/50 border-violet-800/50", text: "text-violet-400", bar: "bg-violet-500" },
+  cyan: { bg: "bg-cyan-950/50 border-cyan-800/50", text: "text-cyan-400", bar: "bg-cyan-500" },
+  purple: { bg: "bg-purple-950/50 border-purple-800/50", text: "text-purple-400", bar: "bg-purple-500" },
+  emerald: { bg: "bg-emerald-950/50 border-emerald-800/50", text: "text-emerald-400", bar: "bg-emerald-500" },
 };
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="max-w-6xl mx-auto px-6 py-16 border-b border-slate-200 dark:border-slate-700">
+    /* MAIN CONTAINER FIXED TO MATCH THE REFINED ABOUT ME LOOK */
+    <section id="skills" className="max-w-6xl mx-auto px-6 py-12 bg-slate-900 rounded-2xl shadow-2xl mb-8 border border-slate-800 transition-colors duration-300">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -99,13 +101,15 @@ export default function SkillsSection() {
         transition={{ duration: 0.5 }}
       >
         <div className="mb-10">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider border border-blue-100 dark:border-blue-700">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyan-950/50 to-blue-950/50 text-cyan-300 text-xs font-bold uppercase tracking-wider border-2 border-cyan-800 shadow-md">
             Technical Arsenal
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-slate-950 dark:text-slate-100 mt-3">
-            Skills & Technologies
+          <h2 className="text-4xl font-bold tracking-tight text-slate-100 mt-3">
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-teal-400 bg-clip-text text-transparent">
+              Skills & Technologies
+            </span>
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-sm mt-2 max-w-2xl">
+          <p className="text-slate-400 text-sm mt-2 max-w-2xl">
             Proficiency across full-stack development, systems architecture, and machine learning infrastructure.
           </p>
         </div>
@@ -118,23 +122,24 @@ export default function SkillsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-md transition-all"
+              className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-xl border-2 border-slate-800 p-6 hover:border-cyan-600 hover:shadow-xl transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className={`p-2 rounded-lg ${colorClasses[category.color].bg} ${colorClasses[category.color].text}`}>
+                <div className={`p-2 rounded-lg border ${colorClasses[category.color].bg} ${colorClasses[category.color].text}`}>
                   {category.icon}
                 </div>
-                <h3 className="text-lg font-bold text-slate-950 dark:text-slate-100">{category.title}</h3>
+                <h3 className="text-lg font-bold text-slate-100">{category.title}</h3>
               </div>
 
               <div className="space-y-4">
                 {category.skills.map((skill) => (
                   <div key={skill.name}>
                     <div className="flex justify-between items-center mb-1.5">
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{skill.name}</span>
-                      <span className="text-xs font-bold text-slate-500 dark:text-slate-400">{skill.level}%</span>
+                      <span className="text-sm font-medium text-slate-300">{skill.name}</span>
+                      <span className="text-xs font-bold text-slate-400">{skill.level}%</span>
                     </div>
-                    <div className="w-full h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                    {/* Dark empty progress bar track background */}
+                    <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden border border-slate-700/50">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}

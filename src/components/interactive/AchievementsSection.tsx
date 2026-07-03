@@ -85,16 +85,18 @@ const leadershipHighlights = [
   },
 ];
 
+// Re-tuned badge color backgrounds and text lines to fit nicely directly in dark mode canvas grids
 const colorClasses: Record<string, string> = {
-  yellow: "bg-yellow-50 text-yellow-700 border-yellow-100",
-  blue: "bg-blue-50 text-blue-700 border-blue-100",
-  purple: "bg-purple-50 text-purple-700 border-purple-100",
-  green: "bg-emerald-50 text-emerald-700 border-emerald-100",
+  yellow: "bg-yellow-950/40 text-yellow-400 border-yellow-800/60",
+  blue: "bg-blue-950/40 text-blue-400 border-blue-800/60",
+  purple: "bg-purple-950/40 text-purple-400 border-purple-800/60",
+  green: "bg-emerald-950/40 text-emerald-400 border-emerald-800/60",
 };
 
 export default function AchievementsSection() {
   return (
-    <section id="achievements" className="max-w-6xl mx-auto px-6 py-16 border-b border-slate-200 dark:border-slate-700">
+    /* MAIN WRAPPER SYNCED WITH ABOUT ME BOX TEMPLATE */
+    <section id="achievements" className="max-w-6xl mx-auto px-6 py-12 bg-slate-900 rounded-2xl shadow-2xl mb-8 border border-slate-800 transition-colors duration-300">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -104,11 +106,13 @@ export default function AchievementsSection() {
         {/* Achievements */}
         <div className="mb-16">
           <div className="mb-8">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-yellow-50 dark:bg-yellow-950/50 text-yellow-700 dark:text-yellow-300 text-xs font-bold uppercase tracking-wider border border-yellow-100 dark:border-yellow-700">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyan-950/50 to-blue-950/50 text-cyan-300 text-xs font-bold uppercase tracking-wider border-2 border-cyan-800 shadow-md">
               Recognition
             </div>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-950 dark:text-slate-100 mt-3">
-              Achievements & Honors
+            <h2 className="text-4xl font-bold tracking-tight text-slate-100 mt-3">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-teal-400 bg-clip-text text-transparent">
+                Achievements & Honors
+              </span>
             </h2>
           </div>
 
@@ -120,7 +124,7 @@ export default function AchievementsSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-md transition-all"
+                className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-xl border-2 border-slate-800 p-6 hover:border-cyan-600 hover:shadow-xl transition-all duration-300"
               >
                 <div className="flex items-start gap-4">
                   <div className={`p-3 rounded-lg ${colorClasses[achievement.color]} border`}>
@@ -128,12 +132,12 @@ export default function AchievementsSection() {
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
-                      <h3 className="text-lg font-bold text-slate-950 dark:text-slate-100">{achievement.title}</h3>
-                      <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded shrink-0">
+                      <h3 className="text-lg font-bold text-slate-100">{achievement.title}</h3>
+                      <span className="text-xs font-semibold text-slate-400 bg-slate-800 px-2.5 py-1 rounded border border-slate-700 shrink-0">
                         {achievement.date}
                       </span>
                     </div>
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{achievement.description}</p>
+                    <p className="text-sm text-slate-400 leading-relaxed">{achievement.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -144,11 +148,13 @@ export default function AchievementsSection() {
         {/* Education */}
         <div className="mb-16">
           <div className="mb-8">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 text-xs font-bold uppercase tracking-wider border border-indigo-100 dark:border-indigo-700">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyan-950/50 to-blue-950/50 text-cyan-300 text-xs font-bold uppercase tracking-wider border-2 border-cyan-800 shadow-md">
               Academic Background
             </div>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-950 dark:text-slate-100 mt-3">
-              Education
+            <h2 className="text-4xl font-bold tracking-tight text-slate-100 mt-3">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-teal-400 bg-clip-text text-transparent">
+                Education
+              </span>
             </h2>
           </div>
 
@@ -160,29 +166,29 @@ export default function AchievementsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-md transition-all"
+                className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-xl border-2 border-slate-800 p-6 hover:border-cyan-600 hover:shadow-xl transition-all duration-300"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-700">
+                  <div className="p-3 rounded-lg bg-indigo-950/50 text-indigo-400 border border-indigo-800/60">
                     <GraduationCap className="w-6 h-6" />
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-3">
                       <div>
-                        <h3 className="text-xl font-bold text-slate-950 dark:text-slate-100">{edu.degree}</h3>
-                        <p className="text-slate-600 dark:text-slate-400 font-medium mt-1">{edu.school}</p>
-                        <p className="text-sm text-slate-500 dark:text-slate-500">{edu.location}</p>
+                        <h3 className="text-xl font-bold text-slate-100">{edu.degree}</h3>
+                        <p className="text-cyan-400 font-semibold mt-1">{edu.school}</p>
+                        <p className="text-sm text-slate-400">{edu.location}</p>
                       </div>
-                      <span className="text-sm font-bold text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-3 py-1.5 rounded-lg self-start">
+                      <span className="text-sm font-bold text-slate-300 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700 self-start">
                         {edu.year}
                       </span>
                     </div>
-                    <p className="text-sm text-slate-700 dark:text-slate-300 mb-3 italic">{edu.focus}</p>
+                    <p className="text-sm text-slate-300 mb-4 italic">{edu.focus}</p>
                     <div className="flex flex-wrap gap-2">
                       {edu.achievements.map((achievement) => (
                         <span
                           key={achievement}
-                          className="text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full border border-indigo-100 dark:border-indigo-700"
+                          className="text-xs font-mono font-semibold bg-gradient-to-r from-indigo-950/40 to-blue-950/40 text-indigo-300 px-3 py-1.5 rounded-full border-2 border-indigo-900/60"
                         >
                           {achievement}
                         </span>
@@ -198,11 +204,13 @@ export default function AchievementsSection() {
         {/* Leadership */}
         <div>
           <div className="mb-6">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider border border-emerald-100 dark:border-emerald-700">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyan-950/50 to-blue-950/50 text-cyan-300 text-xs font-bold uppercase tracking-wider border-2 border-cyan-800 shadow-md">
               Leadership & Access
             </div>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-950 dark:text-slate-100 mt-3">
-              Research & Industry Exposure
+            <h2 className="text-4xl font-bold tracking-tight text-slate-100 mt-3">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-teal-400 bg-clip-text text-transparent">
+                Research & Industry Exposure
+              </span>
             </h2>
           </div>
 
@@ -216,15 +224,15 @@ export default function AchievementsSection() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: false, amount: 0.2 }}
                   transition={{ duration: 0.3, delay: idx * 0.1 }}
-                  className="bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-4 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm transition-all"
+                  className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-xl border-2 border-slate-800 p-5 hover:border-cyan-600 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="p-2 rounded-md bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-700">
+                    <div className="p-2 rounded-md bg-emerald-950/50 text-emerald-400 border border-emerald-800/60">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <h4 className="text-sm font-bold text-slate-950 dark:text-slate-100">{item.title}</h4>
+                    <h4 className="text-sm font-bold text-slate-100">{item.title}</h4>
                   </div>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{item.body}</p>
+                  <p className="text-xs text-slate-400 leading-relaxed">{item.body}</p>
                 </motion.div>
               );
             })}
