@@ -281,13 +281,13 @@ export default function Home() {
                 >
                   <p className="text-slate-300 leading-relaxed text-lg">
                     I'm an aspiring software engineer specializing in building robust, scalable systems
-                    with a focus on performance optimization and algorithmic efficiency[cite: 5, 12, 30]. My work
-                    spans systems programming, distributed architectures, and data-intensive applications[cite: 8, 10, 11].
+                    with a focus on performance optimization and algorithmic efficiency. My work
+                    spans systems programming, distributed architectures, and data-intensive applications.
                   </p>
                   <p className="text-slate-300 leading-relaxed text-lg">
                     With expertise in both low-level systems design and high-level application architecture,
                     I approach engineering challenges with mathematical rigor and a commitment to elegant,
-                    maintainable solutions[cite: 7, 26, 35].
+                    maintainable solutions.
                   </p>
                 </motion.div>
 
